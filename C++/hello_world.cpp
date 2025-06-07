@@ -8,9 +8,9 @@ struct car{
 
 int findCheaper(car arry[], int size){
     int index = 0; 
-    int min = arry[0].iCost + ((miles/arry[0].mpg)*10) ;
+    int min = arry[0].iCost + ((miles/arry[0].mpg)*4*10) ;
     for(int i = 0; i < size; ++i){
-        if((arry[i].iCost + ((miles/arry[i].mpg)*10)) < min){
+        if((arry[i].iCost + ((miles/arry[i].mpg)*4*10)) < min){
             index = i;
         }
     }
@@ -19,9 +19,9 @@ int findCheaper(car arry[], int size){
 
 int main(int argc, char** argv){
     car car1;
-    car1.iCost = 20000; car1.mpg = 50;
+    car1.iCost = 25000; car1.mpg = 50;
     car car2;
-    car2.iCost = 25000; car2.mpg = 30;
+    car2.iCost = 20000; car2.mpg = 30;
 
     car array[2];
     int size = sizeof(array) / sizeof(array[0]);
