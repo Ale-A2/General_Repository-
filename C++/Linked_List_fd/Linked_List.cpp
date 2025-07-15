@@ -6,6 +6,8 @@ class Node{
     Node (int value);
     void insert();
     void shuffle();
+    Node* reverse();
+    void deleteAtPosition();
     int value_;
     Node* next_;
     
@@ -94,6 +96,37 @@ Node* reverse(Node* head){
     return prev;
 }
 
+Node* deleteAtPosition(Node* head, int position){
+    Node* prev;
+    Node* temp = head; 
+
+    if(temp == nullptr){
+        return head;
+    }
+
+    if(position == 1){
+        head = temp -> next_;
+        temp = nullptr;
+        delete temp;
+        return head;
+    }
+ 
+    for(int i = 1; i != position; i++){ //traverse the list
+        prev = temp;
+        temp = temp -> next_;
+    }
+
+    if(temp != nullptr){
+        prev -> next_ = temp -> next_;
+        temp = nullptr;
+        delete temp; 
+    } else {
+        std::cout << "Element not found" << std::endl;
+    }
+
+    return head;
+}
+
 int main(){
     Node* head = new Node(1);
     head -> next_ = new Node(2);
@@ -110,4 +143,8 @@ int main(){
     // reverse(head);
     // suffle(head);
     traverse(reverse(head));
+
+    head = deleteAtPosition(head, 4);
+
+    traverse(head);
 }
