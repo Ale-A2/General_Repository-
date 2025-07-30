@@ -8,7 +8,10 @@ class BST{
     BST(BinaryNode<T>* root_item);
     bool insert(BinaryNode<T>* item, BinaryNode<T>* root); 
     bool insertNode(BinaryNode<T>* item); // Better insert method
-    void printNodes(BinaryNode<T>* root) const;
+    void preOrder(BinaryNode<T>* root) const;
+    void inOrder(BinaryNode<T>* root) const;
+    void postOrder(BinaryNode<T>* root) const;
+
     BinaryNode<T>* returnRoot() const;
 
     void print() const; 

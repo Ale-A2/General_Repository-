@@ -8,34 +8,58 @@ BST<T>::BST(BinaryNode<T>* root_item): root_{root_item} {}
 
 template <class T> 
 bool BST<T>::insert(BinaryNode<T>* item, BinaryNode<T>* root){
-    BinaryNode<T>* temp = root_;
-    if(temp == nullptr){
+    if (root == nullptr)
+    {
         return false; // Indicate failure - should use insertNode instead
-    } else if(item -> getValue() < temp -> getValue()){
-        if(temp -> getLeftChild() == nullptr){
-            temp -> setLeftChild(item);
+    }
+    else if (item->getValue() < root->getValue())
+    {
+        if(root -> getLeftChild() == nullptr){
+            root -> setLeftChild(item);
             return true;
         } else {
-            return insert(item, temp -> getLeftChild());
+            return insert(item, root -> getLeftChild());
         }
-    } else {
-        if(temp -> getRightChild() == nullptr){
-            temp -> setRightChild(item);
+    }
+    else
+    {
+        if(root -> getRightChild() == nullptr){
+            root -> setRightChild(item);
             return true;
         } else {
-            return insert(item, temp -> getRightChild());
+            return insert(item, root -> getRightChild());
         }
     }
 }
 
 template <class T>
-void BST<T>::printNodes(BinaryNode<T>* root) const{
+void BST<T>::preOrder(BinaryNode<T>* root) const{
     if(root == nullptr){
         return;
     } 
     std::cout << root -> getValue() << " ";
-    printNodes(root -> getLeftChild());
-    printNodes(root -> getRightChild());
+    preOrder(root -> getLeftChild());
+    preOrder(root -> getRightChild());
+}
+
+template <class T>
+void BST<T>::inOrder(BinaryNode<T>* root) const{
+    if(root == nullptr){
+        return;
+    } 
+    inOrder(root -> getLeftChild());
+    std::cout << root -> getValue() << " ";
+    inOrder(root -> getRightChild());
+}
+
+template <class T>
+void BST<T>::postOrder(BinaryNode<T>* root) const{
+    if(root == nullptr){
+        return;
+    } 
+    postOrder(root -> getLeftChild());
+    postOrder(root -> getRightChild());
+    std::cout << root -> getValue() << " ";
 }
 
 template <class T>
@@ -62,7 +86,12 @@ void BST<T>::print() const{
         return;
     }
     std::cout << "BST contents: ";
-    printNodes(root_);
+    inOrder(root_);
     std::cout << std::endl;
+    std::cout << std::endl;
+    preOrder(root_);
+    std::cout << std::endl;
+    std::cout << std::endl;
+    postOrder(root_);
 }
  

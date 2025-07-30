@@ -24,13 +24,9 @@ int main(){
     // std::cout << "left child: " << third -> getLeftChild() << " value: " << third -> getLeftChild() -> getValue() << std::endl;
     // std::cout << std::endl;
     BST<int>* tree = new BST<int>(first);
-
-    // std::cout << tree -> returnRoot() ; 
-
-    tree -> insert(second, first);
-    tree -> insert(third, first);
-    tree -> insert(fourth, first);
-    // std::cout << tree -> returnRoot() -> getRightChild() -> getValue();
-
-    tree -> printNodes(first);
+    (*tree).insertNode(second);
+    tree -> insertNode(third);
+    tree -> insertNode(fourth);
+    // tree -> insertNode(second);
+    (*tree).print();
 }
