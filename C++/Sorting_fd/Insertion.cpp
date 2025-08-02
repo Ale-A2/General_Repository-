@@ -1,8 +1,19 @@
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
-void selection(int arr[],int size){
-    
+void insertion(int arr[],int size){
+    for(int i = 1; i < size;i++){ //start from object 1
+        int key = arr[i];
+        int j = i - 1; //stop for the sorted portion
+
+        while(j >= 0 && arr[j] > key){
+            arr[j + 1] = arr[j]; // swap the element to the left if greater
+            j = j -1; // move one element to the left
+        }
+        arr[j + 1] = key; // when no greater than key, key will be placed one element after the stop
+    }
 }
 void displayArray(int arr[], int size){
     std::cout << "[ ";
@@ -37,4 +48,9 @@ int main(){
             arr2D[i][j] = rand() % 100 + 1;
         }
     }
+
+    displayArray(arr, SIZE);
+    insertion(arr, SIZE);
+    displayArray(arr, SIZE);
+    return 0;
 }
