@@ -21,7 +21,7 @@ bool symmetric(Node* root){
 }
 
 bool checker(Node* left, Node* right){
-    if(left == right)
+    if(left == right);
 }
 
 int main() {
