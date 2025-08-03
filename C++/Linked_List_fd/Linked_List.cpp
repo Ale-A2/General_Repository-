@@ -127,14 +127,34 @@ Node* deleteAtPosition(Node* head, int position){
     return head;
 }
 
+Node* insert(Node* head, int data) {
+    // If the list is empty, create the first node
+    if (head == nullptr) {
+        return new Node(data);
+    }
+    
+    // Find the last node
+    Node* current = head;
+    while (current->next_ != nullptr) {
+        current = current->next_;
+    }
+    
+    // Add the new node at the end
+    current->next_ = new Node(data);
+    return head;
+}
+
 int main(){
-    Node* head = new Node(1);
-    head -> next_ = new Node(2);
-    head -> next_ -> next_ = new Node(3);
-    head -> next_ -> next_ -> next_ = new Node(4);
-    head -> next_ -> next_  -> next_ -> next_ = new Node(5);
-    head -> next_ -> next_ -> next_ -> next_ -> next_ = new Node(6);
-    head -> next_ -> next_ -> next_ -> next_ -> next_ -> next_ = new Node(7);
+    Node* head = nullptr;  // Start with empty list
+    
+    // Use insert function to build the list
+    head = insert(head, 1);
+    head = insert(head, 2);
+    head = insert(head, 3);
+    head = insert(head, 4);
+    head = insert(head, 5);
+    head = insert(head, 6);
+    head = insert(head, 7);
 
     traverse(head);
 
