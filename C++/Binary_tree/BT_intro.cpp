@@ -37,6 +37,19 @@ BinaryNode* findLeftmost(BinaryNode* root){
     return temp;
 }
 
+int getHeight(BinaryNode* root){
+          //Write your code here
+          if(!root){
+            return 0;
+          } else {
+            int left_height = getHeight(root -> left_child);
+            int right_height = getHeight(root -> right_child);
+            if(left_height >= right_height){
+                return left_height + 1;
+            } else return right_height + 1;
+          }
+        }
+
 
 
 int main(){
