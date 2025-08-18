@@ -50,16 +50,32 @@ int getHeight(BinaryNode* root){
           }
         }
 
+// Helper function to sum only left leaves
+int sumLeftLeaves(BinaryNode* node, bool isLeft) {
+    if (!node) return 0;
+    // Check if this node is a leaf and a left child
+    if (!node->left_child && !node->right_child && isLeft) {
+        return node->value;
+    }
+    // Recurse for left and right children
+    return sumLeftLeaves(node->left_child, true) + sumLeftLeaves(node->right_child, false);
+}
 
+// Wrapper function for convenience
+int sumLeftLeaves(BinaryNode* root) {
+    return sumLeftLeaves(root, false); // root is not a left child
+}
 
 int main(){
     BinaryNode* exa = new BinaryNode(10);
     exa->left_child = new BinaryNode(4);
-    exa -> right_child = new BinaryNode(6);
-    exa->left_child -> left_child = new BinaryNode(3);
-     exa->left_child -> left_child-> left_child = new BinaryNode(2);
+    exa->right_child = new BinaryNode(6);
+    exa->left_child->left_child = new BinaryNode(3);
+    exa->left_child->left_child->left_child = new BinaryNode(2);
 
-     BinaryNode* dos = new BinaryNode(7);
+    std::cout << "Sum of left leaves: " << sumLeftLeaves(exa) << std::endl;
+
+    BinaryNode* dos = new BinaryNode(7);
 
 
     std::cout << exa->value << " " << exa -> left_child -> value << " " << exa -> right_child -> value << std::endl; 
