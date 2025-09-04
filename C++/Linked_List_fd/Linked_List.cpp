@@ -127,6 +127,68 @@ Node* deleteAtPosition(Node* head, int position){
     return head;
 }
 
+Node* reverse2(Node* head, int left, int right){
+        Node* anchor1 = head;
+        if(left != 1){ for(int i = 1; i < left - 1; i++) anchor1 = anchor1 -> next_;}
+
+        Node* anchor2 = head;
+        if(left != right){
+            for(int i = 1; i < right ; i++){
+                anchor2 = anchor2 -> next_;
+            }
+        }
+
+        Node* cur = anchor1 -> next_;
+        Node* prev = nullptr;
+        Node* next;
+
+        //Reverse section of linkedList
+        for(int i = 0; i < right - left + 1; i++){
+            next = cur -> next_;
+            cur -> next_ = prev;
+            prev = cur;
+            cur = next;
+        }
+
+        anchor1 -> next_ = prev;
+        prev = head;
+        while(prev){
+            if(prev -> next_ != nullptr)
+            prev = prev -> next_;
+            else break;
+        }
+
+        
+
+        // prev -> next_ = anchor2;
+        return head;
+}
+
+// Node* reverse2(Node* head, int left, int right) {
+//     if (!head || left == right) return head;
+
+//     Node dummy(0);
+//     dummy.next_ = head;
+//     Node* prev = &dummy;
+
+//     // Step 1: Move prev to the node before 'left'
+//     for (int i = 1; i < left; ++i) {
+//         prev = prev->next_;
+//     }
+
+//     // Step 2: Reverse the sublist
+//     Node* curr = prev->next_;
+//     Node* next = nullptr;
+//     for (int i = 0; i < right - left; ++i) {
+//         next = curr->next_;
+//         curr->next_ = next->next_;
+//         next->next_ = prev->next_;
+//         prev->next_ = next;
+//     }
+
+//     return dummy.next_;
+// }
+
 Node* insert(Node* head, int data) {
     // If the list is empty, create the first node
     if (head == nullptr) {
@@ -162,9 +224,9 @@ int main(){
 
     // reverse(head);
     // suffle(head);
-    traverse(reverse(head));
+    traverse(reverse2(head, 3 , 5));
 
-    head = deleteAtPosition(head, 4);
+    // head = deleteAtPosition(head, 4);
 
-    traverse(head);
+    // traverse(head);
 }
