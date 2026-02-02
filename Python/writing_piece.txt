@@ -1,0 +1,9 @@
+Anthony Aleman
+In this Turing Machine simulator. I have chosen the doubly linked list to simulate the structure of a tape. Each Node of the list has a null node pointing to next_ and prev_. As the Structure is being filled with input, the nodes are linked to form the list. Move functions account for null nodes so they can be created and filled with a blank symbol.
+In addition to the list, I decided to include a struc to store all the instruction. This struct is initialized to hold at most 1000 items. 
+To store the instructions, the file is read with getline() and blank lines and subtrings // are ignored. This allows me to store the intruction as 1 line and the initialized the intruction struct index with the corresponding value from the 5-tuple.
+To display the turing machine, a temp node is used to traverse the linked list and print the elements. if the temporary node is the same as current_ (a node that simulated the tape head) then [s] will be printed, which represents the current state the machine finds itself in.  This processed is repeated with each display() call to print the ID.
+
+The way I am computing the instructions is by comparing the instructions and their elements that correspong to the current state and tape head input, and compare it to the ones in the tape. Depending on the index of instruction set, a 'L' or 'R' movement will be done in the tape. The current state will be updated according to the 5-taple that corresponds to the right instruction.
+
+In the run function, there is a counter that is checked when 100 prints are done. This could serve for the user to stop the machine if its looping or stop it for other reason. In this tape, inputs that don't correspond to {0,1} will not allow the turing machine to run.  This is sample text at the end of the text This is sample text at the end of the text
