@@ -6,11 +6,12 @@ int main(){
 
     char* ptr = &str;
 
-    int size = strlen(str); //find the size of the string
+    //find the size of the string
 
-    // for(int i = 0; i <= size; i++){
-    //     printf(" %c address: %p \n", str[i], (void*)&str[i]);
-    // }
+    for(int i = 0; i <= sizeof(str); i++){
+        printf(" %c address: %p \n", str[i], (void*)&str[i]);
+    }
+
     for (int i = 0; str[i] != '\0'; i++ ){
         printf("%c", str[i]);
     }
