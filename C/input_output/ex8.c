@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 // conditional in C
+// command line arguments 
 
 int main(int argc, char* argv[]){
     int i = 0;
