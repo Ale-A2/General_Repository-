@@ -1,6 +1,6 @@
 CFLAGS="-Wall" -g
 
-Prog=ex10
+Prog=ex11
 
 run: 
 # @ hides bash commands used in the terminal when the label is called
