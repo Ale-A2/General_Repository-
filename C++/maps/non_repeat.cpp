@@ -1,6 +1,3 @@
-#include <unordered_map>
-#include <iostream>
-#include <algorithm>
 #include "functions.hpp"
 
 char non_rep(const std::string& str){
