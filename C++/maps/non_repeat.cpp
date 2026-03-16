@@ -19,10 +19,10 @@ char non_rep(const std::string& str){
     return one;
 }
 
-int main(){
-    std::string input = "aabbcddef";
+// int main(){
+//     std::string input = "aabbcddef";
 
-    std::cout << "Non-repeating char is: " << non_rep(input) << std::endl;
+//     std::cout << "Non-repeating char is: " << non_rep(input) << std::endl;
 
-    return 0;
-}
+//     return 0;
+// }
