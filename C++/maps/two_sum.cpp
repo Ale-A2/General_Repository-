@@ -19,15 +19,15 @@ void two_sum(int arr[], int contents[], int size, int target){
     arr[1] = -1;
 }
 
-int main(){
-    int check[] = {2,7,8,10,5,3,6};
-    int size = sizeof(check)/sizeof(check[0]);
+// int main(){
+//     int check[] = {2,7,8,10,5,3,6};
+//     int size = sizeof(check)/sizeof(check[0]);
 
-    int final[2];
+//     int final[2];
 
-    two_sum(final, check, size, 99);
+//     two_sum(final, check, size, 99);
 
-    std::cout << "{ " << final[0] << " : " << final[1] << " }";
+//     std::cout << "{ " << final[0] << " : " << final[1] << " }";
 
-    return 0;
-}
+//     return 0;
+// }
