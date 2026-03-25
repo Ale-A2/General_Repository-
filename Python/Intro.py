@@ -64,15 +64,31 @@
 
 # Dictionaries
 # dictionary declaration
-thisdict = {
-    "brand" : "Ford",
-    "electric": False,
-    "year" : 1964,
-    "colors" : ["red", "blue","black"]
-}
+# thisdict = {
+#     "brand" : "Ford",
+#     "electric": False,
+#     "year" : 1964,
+#     "colors" : ["red", "blue","black"]
+# }
 
 # Values are accesses by giving the key in []. WE access value with the key colors. prints red blue black
-print(thisdict["colors"])
+# print(thisdict["colors"])
 
 # Using dictionaries to plot 
 # opendata.cityofnewyokr.us website that offers data sets with different topics 
+
+
+# A dictionary ticket_sales is used to map ticket type to number of tickets sold.
+#  Return the total number of tickets of all types sold.
+
+def total_sales(ticket_sales):
+    total = 0
+    for ticket_type in ticket_sales.values():
+        total += ticket_type
+
+    return total
+    
+
+ticket_sales = {"Friday": 200, "Saturday": 1000, "Sunday": 800, "3-Day Pass": 2500}
+
+print(total_sales(ticket_sales))
